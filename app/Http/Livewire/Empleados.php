@@ -19,7 +19,7 @@ class Empleados extends Component
     public $readyToLoad = false;
 
     protected $rules = [
-        'empleado.num_empleado' => 'required',
+        'empleado.num_empleado' => '',
         'empleado.name' => 'required',
         'empleado.father_lastname' => 'required',
         'empleado.mother_lastname' => 'required',
@@ -46,11 +46,36 @@ class Empleados extends Component
     public function render()
     {
         $this->empleado = Empleado::where('num_empleado', $this->search)->first();
+        if(!$this->empleado)
+        {
+            $this->empleado = [];
+        }
         return view('livewire.empleados')->with('empleado',$this->empleado);
 
     }
     public function loadPost(){
         $this->readyToLoad = true;
+    }
+
+    public function save(){
+        $this->validate();
+
+        Empleado::create([
+            'num_empleado' => $this->search,
+            'name' => $this->name,
+            'father_lastname' => $this->father_lastname,
+            'mother_lastname' => $this->mother_lastname,
+            'condicion_id' => $this->condicion_id,
+            'fecha_ingreso' => $this->fecha_ingreso,
+            'deparment_id' => $this->deparment_id,
+            'jornada_id' => $this->jornada_id,
+            'puesto_id' => $this->puesto_id,
+            'estancia' => $this->estancia,
+            'lactancia' => $this->lactancia,
+            'comisionado' => $this->comisionado
+        ]);
+
+        $this->emit('alert', 'El usuario se actualizo satisfactoriamente');
     }
 
 

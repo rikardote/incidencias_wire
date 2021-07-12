@@ -1,0 +1,14 @@
+Empleado::create([
+            'num_empleado' => $this->search,
+            'name' => $this->name,
+            'father_lastname' => $this->father_lastname,
+            'mother_lastname' => $this->father_lastname,
+            'condicion_id' => $this->condicion_id,
+            'fecha_ingreso' => $this->fecha_ingreso,
+            'deparment_id' => $this->deparment_id,
+            'jornada_id' => $this->jornada_id,
+            'puesto_id' => $this->puesto_id,
+            'estancia' => $this->estancia,
+            'lactancia' => $this->lactancia,
+            'comisionado' => $this->comisionado
+        ]);
