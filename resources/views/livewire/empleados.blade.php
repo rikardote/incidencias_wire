@@ -1,5 +1,5 @@
  <div class="px-4 py-4 sm:px-6 lg:px-8">
-     <form  wire:submit.prevent="update()">
+
          <div class="flex px-4 mt-2 overflow-hidden bg-gray-100 rounded-lg shadow-lg xl:mx-8">
              <div class="w-1/2 mt-4 mb-4 ">
                  <div class="mr-2">
@@ -115,13 +115,18 @@
 
          <div class="flex items-center justify-end py-4">
              @if ($nuevo_empleado)
-            <x-jet-button wire:click="save" class=""> Guardar </x-jet-button>
+                <x-jet-button wire:click="save" class=""> Guardar </x-jet-button>
              @else
-                 <x-jet-button class=""> Editar Valores </x-jet-button>
+                <x-jet-button wire:click="update"> Editar Valores </x-jet-button>
              @endif
          </div>
 
 
-     </form>
+
 
  </div>
+
+ @push('js')
+
+
+    @endpush

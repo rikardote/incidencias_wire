@@ -67,7 +67,7 @@ class Empleados extends Component
         $this->validate();
         $this->empleado->save();
 
-        $this->emit('alert', 'El usuario se actualizo satisfactoriamente');
+        $this->emit('alert', 'Empleado guardado satisfactoriamente');
     }
 
 
@@ -76,7 +76,7 @@ class Empleados extends Component
         $this->validate();
         $this->empleado->update();
 
-        $this->emit('alert', 'El usuario se actualizo satisfactoriamente');
+        $this->emit('alert', 'Empleado actualizado satisfactoriamente');
     }
 
     public function delete(User $user){
