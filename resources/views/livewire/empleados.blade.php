@@ -1,7 +1,6 @@
  <div class="px-4 py-4 sm:px-6 lg:px-8">
-     <form wire:submit.prevent="update" class="">
+     <form  wire:submit.prevent="update()">
          <div class="flex px-4 mt-2 overflow-hidden bg-gray-100 rounded-lg shadow-lg xl:mx-8">
-
              <div class="w-1/2 mt-4 mb-4 ">
                  <div class="mr-2">
                      <x-jet-label value="Numero de empleado" />
@@ -82,10 +81,10 @@
                      @endforeach
                  </select>
                  <x-jet-input-error for="empleado.puesto_id" class="mt-2" />
-                 @if (!empty($empleado))
+                 @if (!$nuevo_empleado)
                     <x-jet-label value="Antiguedad" />
                     <x-jet-input type="text" value=" {{$empleado->antiguedad}} " />
-                @endif
+                 @endif
 
                  <div class="">
                      <span class="text-gray-500">Otros</span>
@@ -115,13 +114,14 @@
          </div>
 
          <div class="flex items-center justify-end py-4">
-             @if (empty($empleado))
-                 <x-jet-button wire:click="save" class=""> Guardar </x-jet-button>
+             @if ($nuevo_empleado)
+            <x-jet-button wire:click="save" class=""> Guardar </x-jet-button>
              @else
-                 <x-jet-button wire:click="update"  class=""> Editar Valores </x-jet-button>
+                 <x-jet-button class=""> Editar Valores </x-jet-button>
              @endif
          </div>
 
 
      </form>
+
  </div>

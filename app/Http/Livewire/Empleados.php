@@ -12,14 +12,14 @@ use App\Models\Puesto;
 
 class Empleados extends Component
 {
-    public $empleado, $tipos_de_contratacion, $image, $identificador;
+    public $tipos_de_contratacion, $empleado;
     public $departamentos, $jornadas, $horarios, $puestos;
-    public $estancia, $lactancia, $comisionado;
     public $search = '';
+    public $nuevo_empleado = false;
     public $readyToLoad = false;
 
     protected $rules = [
-        'empleado.num_empleado' => '',
+        'empleado.num_empleado' => 'required',
         'empleado.name' => 'required',
         'empleado.father_lastname' => 'required',
         'empleado.mother_lastname' => 'required',
@@ -35,7 +35,6 @@ class Empleados extends Component
     ];
 
     public function mount(){
-        $this->empleado = new Empleado();
         $this->tipos_de_contratacion = Condicion::all();
         $this->departamentos = Departamento::all();
         $this->jornadas = Jornada::all();
@@ -45,11 +44,18 @@ class Empleados extends Component
 
     public function render()
     {
+
         $this->empleado = Empleado::where('num_empleado', $this->search)->first();
         if(!$this->empleado)
         {
-            $this->empleado = [];
+            $this->nuevo_empleado = true;
+            $this->empleado = new Empleado();
+            $this->empleado->num_empleado = $this->search;
         }
+        else {
+            $this->nuevo_empleado = false;
+        }
+
         return view('livewire.empleados')->with('empleado',$this->empleado);
 
     }
@@ -59,30 +65,15 @@ class Empleados extends Component
 
     public function save(){
         $this->validate();
-
-        Empleado::create([
-            'num_empleado' => $this->search,
-            'name' => $this->name,
-            'father_lastname' => $this->father_lastname,
-            'mother_lastname' => $this->mother_lastname,
-            'condicion_id' => $this->condicion_id,
-            'fecha_ingreso' => $this->fecha_ingreso,
-            'deparment_id' => $this->deparment_id,
-            'jornada_id' => $this->jornada_id,
-            'puesto_id' => $this->puesto_id,
-            'estancia' => $this->estancia,
-            'lactancia' => $this->lactancia,
-            'comisionado' => $this->comisionado
-        ]);
+        $this->empleado->save();
 
         $this->emit('alert', 'El usuario se actualizo satisfactoriamente');
     }
 
 
     public function update(){
-        $this->validate();
-        $this->empleado->num_empleado = $this->search;
 
+        $this->validate();
         $this->empleado->update();
 
         $this->emit('alert', 'El usuario se actualizo satisfactoriamente');
