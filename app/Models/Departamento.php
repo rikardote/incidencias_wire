@@ -17,4 +17,9 @@ class Departamento extends Model
     {
         return str_pad($value, 5, '0', STR_PAD_LEFT);
     }
+
+    public function getJoinAttribute($value)
+    {
+       return $this->code . ' - ' . $this->description;
+    }
 }

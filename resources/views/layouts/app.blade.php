@@ -46,7 +46,7 @@
         <script>
             Livewire.on('alert', function(message) {
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'success',
                     title: '',
                     showConfirmButton: false,

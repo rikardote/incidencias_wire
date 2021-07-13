@@ -35,11 +35,11 @@ class Empleados extends Component
     ];
 
     public function mount(){
-        $this->tipos_de_contratacion = Condicion::all();
-        $this->departamentos = Departamento::all();
-        $this->jornadas = Jornada::all();
-        $this->horarios = Horario::all();
-        $this->puestos = Puesto::all();
+        $this->tipos_de_contratacion = Condicion::all()->pluck('id', 'condicion')->toArray();
+        $this->departamentos = Departamento::all()->pluck('id', 'join')->toArray();
+        $this->jornadas = Jornada::all()->pluck('id', 'jornada')->toArray();
+        $this->horarios = Horario::all()->pluck('id', 'horario')->toArray();
+        $this->puestos = Puesto::all()->pluck('id', 'puesto')->toArray();
     }
 
     public function render()
@@ -56,7 +56,7 @@ class Empleados extends Component
             $this->nuevo_empleado = false;
         }
 
-        return view('livewire.empleados')->with('empleado',$this->empleado);
+        return view('livewire.empleados');
 
     }
     public function loadPost(){

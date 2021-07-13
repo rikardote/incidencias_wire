@@ -25,8 +25,8 @@
                      <select wire:model.defer="empleado.condicion_id"
                          class="border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                          <option value=""></option>
-                         @foreach ($tipos_de_contratacion as $tipos)
-                             <option value="{{ $tipos->id }}">{{ $tipos->condicion }}</option>
+                         @foreach ($tipos_de_contratacion as $tipos => $key)
+                             <option value="{{ $key }}">{{ $tipos }}</option>
                          @endforeach
                      </select>
                      <x-jet-input-error for="empleado.mother_lastname" class="mt-2" />
@@ -44,9 +44,8 @@
                      <select wire:model.defer="empleado.deparment_id"
                          class="border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                          <option value=""></option>
-                         @foreach ($departamentos as $departamento)
-                             <option value="{{ $departamento->id }}">{{ $departamento->code }} -
-                                 {{ $departamento->description }}</option>
+                         @foreach ($departamentos as $departamento => $key)
+                         <option value="{{ $key }}">{{ $departamento }}</option>
                          @endforeach
                      </select>
                  </div>
@@ -56,8 +55,8 @@
                  <select wire:model.defer="empleado.jornada_id"
                      class="border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                      <option value=""></option>
-                     @foreach ($jornadas as $jornada)
-                         <option value="{{ $jornada->id }}">{{ $jornada->jornada }} </option>
+                     @foreach ($jornadas as $jornada => $key)
+                     <option value="{{ $key }}">{{ $jornada }}</option>
                      @endforeach
                  </select>
                  <x-jet-input-error for="empleado.jornada_id" class="mt-2" />
@@ -66,8 +65,8 @@
                  <select wire:model.defer="empleado.horario_id"
                      class="border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                      <option value=""></option>
-                     @foreach ($horarios as $horario)
-                         <option value="{{ $horario->id }}">{{ $horario->horario }} </option>
+                     @foreach ($horarios as $horario => $key)
+                     <option value="{{ $key }}">{{ $horario }}</option>
                      @endforeach
                  </select>
                  <x-jet-input-error for="empleado.horario_id" class="mt-2" />
@@ -76,8 +75,8 @@
                  <select wire:model.defer="empleado.puesto_id"
                      class="border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                      <option value=""></option>
-                     @foreach ($puestos as $puesto)
-                         <option value="{{ $puesto->id }}">{{ $puesto->puesto }} </option>
+                     @foreach ($puestos as $puesto => $key)
+                        <option value="{{ $key }}">{{ $puesto }}</option>
                      @endforeach
                  </select>
                  <x-jet-input-error for="empleado.puesto_id" class="mt-2" />
