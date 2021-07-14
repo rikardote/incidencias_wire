@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="{{ mix('css/postCss.css') }}">
         <link rel="stylesheet" href="{{ mix('css/scss.css') }}">
 
-
         @livewireStyles
 
         <!-- Scripts -->
