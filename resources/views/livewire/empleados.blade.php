@@ -137,6 +137,7 @@
                         @endif
                     </div>
                     <div>
+                        <!-- class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black opacity-50" -->
                         <div wire:loading class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full bg-black opacity-75">
                             <div class="la-ball-spin la-2x">
                                 <div></div>
