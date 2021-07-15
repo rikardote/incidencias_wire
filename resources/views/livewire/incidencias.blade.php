@@ -18,29 +18,22 @@
 
             <div class="">
                 <div class="px-4 py-4 mx-auto">
-
-                        <div class="flex flex-col justify-center bg-white border border-gray-300 rounded shadow-lg">
-                            <div class="flex w-full ">
-                                <div class="flex items-center justify-center w-full mt-2 mb-4 bg-green-500">
-                                    <p class="text-3xl font-bold text-center text-black">
-                                        {{ $empleado->num_empleado }} - {{ $empleado->fullname }}
-                                    </p>
-                                </div>
+                    <div class="flex flex-col justify-center bg-white border border-gray-300 rounded shadow-lg">
+                        <div class="flex w-full ">
+                            <div class="flex items-center justify-center w-full mt-2 mb-4 ml-2 mr-2 bg-green-500">
+                                <p class="text-2xl text-center text-black">
+                                    {{ $empleado->num_empleado }} - {{ $empleado->fullname }}
+                                </p>
                             </div>
-
                         </div>
-
+                    </div>
                 </div>
-                <div class="text-center text-black">
 
-                        {{ $empleado->departamento->join }}
-                </div>
-                <div class="text-center text-black">
+                <div class="text-center text-black"> {{ $empleado->departamento->join }} </div>
+                <div class="text-center text-black"> {{ $empleado->puesto->puesto }} </div>
+                <div class="text-center text-black"> {{ $empleado->horario->horario }} </div>
 
-                        {{ $empleado->horario->horario }} | {{ $empleado->puesto->puesto }}
-
-                </div>
-                <table class="w-full m-5 mx-auto text-gray-800 bg-gray-200 rounded-lg">
+                <table class="w-full m-5 mx-auto mt-4 text-gray-800 bg-gray-200 rounded-lg">
                     <thead>
                         <tr class="text-left border-b-2 border-gray-300">
                             <th class="px-4 py-3 text-center">Qna</th>
