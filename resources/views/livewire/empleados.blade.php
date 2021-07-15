@@ -1,20 +1,21 @@
 <div class="px-4 py-4 sm:px-6 lg:px-8">
 
-
-    <div class="flex px-4 mt-2 overflow-hidden bg-gray-100 rounded-lg shadow-lg xl:mx-8">
-
         <div class="grid grid-cols-2">
+
+
             <!-- PRIMERA COLUMNA -->
+
             <div class="m-3">
                 <div class="">
                     <x-jet-label value="Numero de empleado" />
-
                     <div class="relative flex w-3/4 mb-3">
-                        <x-jet-input class="relative w-full " wire:model="search" type="text" />
-                        <span
-                            class="absolute right-0 z-10 items-center justify-center w-8 h-full py-3 pr-3 text-base font-normal leading-snug text-center bg-transparent rounded text-blueGray-300">
-                            <i class="fas fa-times-circle"></i>
+                        <x-jet-input class="relative w-full" wire:model.debounce.500ms="search" type="text"/>
+                        @if($search)
+                        <span wire:click="clear_search"
+                            class="absolute right-0 z-10 items-center justify-center w-8 h-full py-3 pr-3 text-base font-normal leading-snug text-center bg-transparent rounded cursor-pointer">
+                            <i class="text-red-500 far fa-times-circle"></i>
                         </span>
+                        @endif
                     </div>
                     <x-jet-input-error for="empleado.num_empleado" class="mt-2" />
                 </div>
@@ -54,6 +55,7 @@
 
 
             <!-- SEGUNDA COLUMNA -->
+
             <div class="m-3">
                 <div class="">
                     <x-jet-label value="Departamento" />
@@ -136,9 +138,8 @@
 
                         @endif
                     </div>
-                    <div>
-                        <!-- class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black opacity-50" -->
-                        <div wire:loading class="fixed top-0 left-0 z-0 flex items-center justify-center w-full h-full bg-black opacity-75">
+                    <div wire:loading.delay wire:target="save, update">
+                        <div class="loading-spinner" >
                             <div class="la-ball-spin la-2x">
                                 <div></div>
                                 <div></div>
@@ -156,8 +157,5 @@
             </div>
 
         </div>
-    </div>
-
-
 
 </div>

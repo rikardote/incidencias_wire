@@ -82,4 +82,9 @@ class Empleados extends Component
     public function delete(User $user){
         $user->delete();
     }
+
+    public function clear_search()
+    {
+        $this->reset('search');
+    }
 }

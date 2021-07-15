@@ -15,11 +15,13 @@ class Empleado extends Model
 
     public function getfullnameAttribute($value)
     {
-       return $this->name . ' ' . $this->father_lastname. ' ' . $this->mother_lastname;
+       return $this->father_lastname. ' ' . $this->mother_lastname. ' ' .$this->name;
     }
 
     public function getAntiguedadAttribute($value){
         $dt = Carbon::parse($this->fecha_ingreso);
         return Carbon::createFromDate($dt->year, $dt->month, $dt->day)->diff(Carbon::now())->format('%y Años, %m meses y %d dias');
     }
+
+
 }
