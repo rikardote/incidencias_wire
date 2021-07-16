@@ -1,6 +1,6 @@
 <div class="antialiased sans-serif">
     <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
-        <div class="container px-4 py-2 mx-auto md:py-10">
+        <div class="container mx-auto sm:px-4 px-4 py-2 mx-auto md:py-10">
             <div class="w-64 mb-5">
                 <label for="datepicker" class="block mb-1 font-bold text-gray-700">Select Date</label>
                 <div class="relative">
@@ -11,7 +11,7 @@
                         placeholder="Select date" />
 
                     <div class="absolute top-0 right-0 px-3 py-2">
-                        <svg class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="w-6 mb-2 font-medium leading-tight text-base text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
@@ -21,7 +21,7 @@
                             <div x-text="32 - new Date(year, month, 32).getDate()"></div>
                             <div x-text="new Date(year, month).getDay()"></div> -->
 
-                    <div class="absolute top-0 left-0 p-4 mt-12 bg-white rounded-lg shadow" style="width: 17rem"
+                    <div class="absolute top-0 left-0 p-6 mt-12 bg-white rounded-lg shadow" style="width: 17rem"
                         x-show.transition="showDatepicker" @click.away="showDatepicker = false">
                         <div class="flex items-center justify-between mb-2">
                             <div>
@@ -33,7 +33,7 @@
                                     class="inline-flex p-1 transition duration-100 ease-in-out rounded-full cursor-pointer hover:bg-gray-200"
                                     :class="{'cursor-not-allowed opacity-25': month == 0 }"
                                     :disabled="month == 0 ? true : false" @click="month--; getNoOfDays()">
-                                    <svg class="inline-flex w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24"
+                                    <svg class="inline-flex w-6 mb-2 font-medium leading-tight text-base text-gray-500" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M15 19l-7-7 7-7" />
@@ -43,7 +43,7 @@
                                     class="inline-flex p-1 transition duration-100 ease-in-out rounded-full cursor-pointer hover:bg-gray-200"
                                     :class="{'cursor-not-allowed opacity-25': month == 11 }"
                                     :disabled="month == 11 ? true : false" @click="month++; getNoOfDays()">
-                                    <svg class="inline-flex w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24"
+                                    <svg class="inline-flex w-6 mb-2 font-medium leading-tight text-base text-gray-500" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M9 5l7 7-7 7" />

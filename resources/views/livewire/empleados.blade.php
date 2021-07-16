@@ -5,7 +5,7 @@
 
         <!-- PRIMERA COLUMNA -->
 
-        <div class="m-3">
+        <div class="m-6">
             <div class="">
                 <x-jet-label value="Numero de empleado" />
                 <div class="relative flex w-3/4 mb-3">
@@ -56,7 +56,7 @@
 
         <!-- SEGUNDA COLUMNA -->
 
-        <div class="m-3">
+        <div class="m-6">
             <div class="">
                 <x-jet-label value="Departamento" />
                 <select wire:model.defer="empleado.deparment_id"
