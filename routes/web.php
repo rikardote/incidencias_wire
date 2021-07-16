@@ -5,6 +5,7 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\IncidenciasController;
+use App\Http\Controllers\QnasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,5 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     })->name('dashboard');
     Route::resource('empleados', EmpleadosController::class);
     Route::resource('incidencias', IncidenciasController::class);
+    Route::resource('qnas', QnasController::class);
 });

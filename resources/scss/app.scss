@@ -6,6 +6,19 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.toggle-checkbox{
+    @apply text-white;
+}
+.toggle-checkbox:checked {
+  @apply right-0;
+  @apply border-transparent;
+  transition:all 0.5s;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply bg-green-400;
+  transition:all 0.5s;
+}
+
 .loading-spinner{
     display: flex;
     justify-content: center;
