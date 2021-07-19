@@ -11,6 +11,9 @@ class Empleado extends Model
     use HasFactory;
     protected $table = 'employees';
 
+    protected $with = ['departamento'];
+    protected $withCount = ['departamento'];
+
     protected $fillable = ['num_empleado', 'name', 'father_lastname', 'mother_lastname', 'fecha_ingreso', 'deparment_id', 'condicion_id', 'puesto_id', 'horario_id', 'num_plaza', 'num_seguro','jornada_id', 'lactancia', 'comisionado', 'estancia'];
 
     protected $dates = ['fecha_ingreso'];
